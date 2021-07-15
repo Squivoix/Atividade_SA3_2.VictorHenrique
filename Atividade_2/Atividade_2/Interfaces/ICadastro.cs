@@ -8,18 +8,18 @@ namespace Atividade_2
 		//Cadastro das pessoas e das doações
 		List<Doador> Doadores { get; set; }
 		List<Beneficiario> Beneficiarios { get; set; }
-		Dictionary<int, Doacao> Doacoes { get; set; }
+		List<Doacao> Doacoes { get; set; }
 
 		void MostrarListaDePessoas();
 
-		void MostrarListaDeDoacoes();
-		void MostrarListaDeDoacoes(DateTime data);
+		List<Doacao> MostrarListaDeDoacoes();
+		Doacao MostrarListaDeDoacoes(DateTime data);
 
-		void CadastrarPessoaDoadora();
-		void CadastrarPessoaDoadoraMensal();
+		void CadastrarPessoaDoadora(string nome, string cpf, string endereco, string telefone);
+		void CadastrarPessoaDoadoraMensal(string nome, string cpf, string endereco, string telefone);
 
-		void CadastrarPessoaBeneficiaria();
+		void CadastrarPessoaBeneficiaria(string nome, string cpf, string endereco, string telefone);
 
-		void RegistrarDoacoes(int id, Doacao doacao);
+		void RegistrarDoacoes(DateTime data, Pessoa doador, Pessoa beneficiario, ItemDoacao item);
 	}
 }
