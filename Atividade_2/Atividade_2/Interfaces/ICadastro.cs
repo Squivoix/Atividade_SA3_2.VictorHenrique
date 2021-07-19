@@ -10,16 +10,15 @@ namespace Atividade_2
 		List<Beneficiario> Beneficiarios { get; set; }
 		List<Doacao> Doacoes { get; set; }
 
-		void MostrarListaDePessoas();
+		List<Doador> MostrarListaDeDoadores();
+		List<Beneficiario> MostrarListaDeBeneficiarios();
 
 		List<Doacao> MostrarListaDeDoacoes();
 		Doacao MostrarListaDeDoacoes(DateTime data);
 
-		void CadastrarPessoaDoadora(string nome, string cpf, string endereco, string telefone);
-		void CadastrarPessoaDoadoraMensal(string nome, string cpf, string endereco, string telefone);
-
-		void CadastrarPessoaBeneficiaria(string nome, string cpf, string endereco, string telefone);
-
-		void RegistrarDoacoes(DateTime data, Pessoa doador, Pessoa beneficiario, ItemDoacao item);
+		bool CadastrarPessoaDoadora(string nome, string cpf, string endereco, string telefone);
+		bool CadastrarPessoaDoadoraMensal(string nome, string cpf, string endereco, string telefone);
+		bool CadastrarPessoaBeneficiaria(string nome, string cpf, string endereco, string telefone);
+		void RegistrarDoacoes(DateTime data, Pessoa doador, Pessoa beneficiario);
 	}
 }

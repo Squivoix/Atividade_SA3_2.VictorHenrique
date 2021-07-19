@@ -1,24 +1,19 @@
 ﻿
 namespace Atividade_2
 {
-	class Doador : IDoador
+	class Doador : Pessoa, IDoador
 	{
-		public string Nome { get; set; }
-		public string CPF { get; set; }
-		public string Endereco { get; set; }
-		public string Telefone { get; set; }
 
-		public Doador(string nome, string cpf, string endereco, string telefone)
-		{
-			Nome = nome;
-			CPF = cpf;
-			Endereco = endereco;
-			Telefone = telefone;
-		}
+		public Doador(string nome, string cpf, string endereco, string telefone) : base(nome, cpf, endereco, telefone) { }
 
-		public void Doar(Doacao doacao, Beneficiario beneficiario)
+		/// <summary>
+		/// Doar alguma coisa para um certo beneficiário.
+		/// </summary>
+		/// <param name="doacao">A doação a ser feita.</param>
+		/// <param name="beneficiario">O beneficiário que receberá.</param>
+		public void Doar(Doacao d, Beneficiario b)
 		{
-			beneficiario.ReceberDoacao(doacao);
+			b.ReceberDoacao(d);
 		}
 	}
 }

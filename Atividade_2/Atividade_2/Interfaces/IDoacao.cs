@@ -9,6 +9,5 @@ namespace Atividade_2
 		DateTime DataDoacao { get; set; }
 		Pessoa Doador { get; set; }
 		Pessoa Beneficiario { get; set; }
-		ItemDoacao ItemDoacao { get; set; }
 	}
 }

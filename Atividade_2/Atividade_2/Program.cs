@@ -26,6 +26,8 @@ namespace Atividade_2
 					case 1 : //Cadastrar Pessoa Doadora.
 					{
 
+						Menu.CadastrarPessoaDoadora("Victor", "123", "Rua Diacuí", "999");
+
 						break;
 					}
 
@@ -41,13 +43,13 @@ namespace Atividade_2
 						break;
 					}
 
-					case 4 : //Mostrar Lista de Pessoas.
+					case 4 : //Mostrar Lista de Pessoas Cadastradas.
 					{
 
 						break;
 					}
 
-					case 5 : //Mostrar Lista de Docações.
+					case 5 : //Mostrar Lista de Doações, com ou sem data.
 					{
 
 						break;

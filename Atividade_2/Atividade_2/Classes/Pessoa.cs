@@ -8,5 +8,12 @@ namespace Atividade_2
 		public string Endereco { get; set; }
 		public string Telefone { get; set; }
 
+		protected Pessoa(string nome, string cpf, string endereco, string telefone)
+		{
+			Nome = nome;
+			CPF = cpf;
+			Endereco = endereco;
+			Telefone = telefone;
+		}
 	}
 }

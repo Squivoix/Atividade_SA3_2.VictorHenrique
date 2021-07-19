@@ -1,22 +1,15 @@
 ﻿
 namespace Atividade_2
 {
-	class Beneficiario : IBeneficiario
+	class Beneficiario : Pessoa, IBeneficiario
 	{
-		public string Nome { get; set; }
-		public string CPF { get; set; }
-		public string Endereco { get; set; }
-		public string Telefone { get; set; }
+		public Beneficiario(string nome, string cpf, string endereco, string telefone) : base(nome, cpf, endereco, telefone) { }
 
-		public Beneficiario(string nome, string cpf, string endereco, string telefone)
-		{
-			Nome = nome;
-			CPF = cpf;
-			Endereco = endereco;
-			Telefone = telefone;
-		}
-
-		public void ReceberDoacao(Doacao doacao)
+		/// <summary>
+		/// Receber uma doação.
+		/// </summary>
+		/// <param name="doacao">A doação a ser doada.</param>
+		public void ReceberDoacao(Doacao d)
 		{
 			//Recebe a doação
 		}
