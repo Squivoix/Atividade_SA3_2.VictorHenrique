@@ -9,6 +9,13 @@ namespace Atividade_2
 		public List<Beneficiario> Beneficiarios { get; set; }
 		public List<Doacao> Doacoes { get; set; }
 
+		public Cadastro()
+		{
+			Doadores = new List<Doador>();
+			Beneficiarios = new List<Beneficiario>();
+			Doacoes = new List<Doacao>();
+		}
+
 		/// <summary>
 		/// Cadastrar uma pessoa beneficiária.
 		/// </summary>
