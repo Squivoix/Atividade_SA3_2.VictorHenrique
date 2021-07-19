@@ -19,6 +19,6 @@ namespace Atividade_2
 		bool CadastrarPessoaDoadora(string nome, string cpf, string endereco, string telefone);
 		bool CadastrarPessoaDoadoraMensal(string nome, string cpf, string endereco, string telefone);
 		bool CadastrarPessoaBeneficiaria(string nome, string cpf, string endereco, string telefone);
-		void RegistrarDoacoes(DateTime data, Pessoa doador, Pessoa beneficiario);
+		void RegistrarDoacoes(DateTime data, Doador doador, Beneficiario beneficiario);
 	}
 }

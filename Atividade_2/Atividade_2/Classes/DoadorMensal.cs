@@ -4,12 +4,7 @@ namespace Atividade_2
 {
 	class DoadorMensal : Doador, IDoadorMensal
 	{
-		private DateTime dataCadastro;
-
-		public DoadorMensal(string nome, string cpf, string endereco, string telefone, DateTime data) : base(nome, cpf, endereco, telefone) 
-		{
-			dataCadastro = data;
-		}
+		public DoadorMensal(string nome, string cpf, string endereco, string telefone, DateTime data) : base(nome, cpf, endereco, telefone, data) { }
 
 		/// <summary>
 		/// Doação mensal.
@@ -23,7 +18,7 @@ namespace Atividade_2
 			significa que um mês se passou desde o último dia, ou o dia do cadastro.
 			Então realiza a doação.
 			*/
-			if((DateTime.Now - dataCadastro).Days % 30 == 0)
+			if((DateTime.Now - DataCadastro).Days % 30 == 0)
 			{
 				Doar(d, b);
 			}

@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace Atividade_2
 {
 	interface IPessoa
@@ -7,6 +8,7 @@ namespace Atividade_2
 		string CPF { get; set; }
 		string Endereco { get; set; }
 		string Telefone { get; set; }
+		DateTime DataCadastro { get; set; }
 
 	}
 }

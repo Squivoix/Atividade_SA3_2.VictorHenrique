@@ -30,7 +30,7 @@ namespace Atividade_2
 				return false;
 			}
 
-			Beneficiarios.Add(new Beneficiario(nome, cpf, endereco, telefone));
+			Beneficiarios.Add(new Beneficiario(nome, cpf, endereco, telefone, DateTime.Now));
 			return true;
 		}
 
@@ -48,7 +48,7 @@ namespace Atividade_2
 				return false;
 			}
 
-			Doadores.Add(new Doador(nome, cpf, endereco, telefone));
+			Doadores.Add(new Doador(nome, cpf, endereco, telefone, DateTime.Now));
 			return true;
 		}
 
@@ -109,9 +109,11 @@ namespace Atividade_2
 		/// <param name="data">A data da doação.</param>
 		/// <param name="doador">A pessoa que doou.</param>
 		/// <param name="beneficiario">A pessoa que recebeu.</param>
-		public void RegistrarDoacoes(DateTime data, Pessoa doador, Pessoa beneficiario)
+		public void RegistrarDoacoes(DateTime data, Doador doador, Beneficiario beneficiario)
 		{
 			Doacoes.Add(new Doacao(data, doador, beneficiario));
+			doador.Doar(Doacoes[^1], beneficiario);
+			beneficiario.ReceberDoacao(Doacoes[^1]);
 		}
 
 		#region Funções Privadas
