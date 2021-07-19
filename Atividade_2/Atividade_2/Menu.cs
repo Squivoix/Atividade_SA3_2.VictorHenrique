@@ -48,31 +48,24 @@ namespace Atividade_2
 		{
 			List<Doador> doadores = c1.MostrarListaDeDoadores();
 			
-			int nome = 0, cpf = 0, endereco = 0, telefone = 0, total;
+			if(doadores.Count == 0)
+			{
+				Console.WriteLine("\nLista de doadores está vazio!");
+				return;
+			}
+
+			int tipo = 0, nome = 0, cpf = 0, endereco = 0, telefone = 0, total;
 
 			#region Maiores Valores
 			//Seleciona os maiores valores da lista.
 			foreach(Doador d in doadores)
 			{
-				if(d.Nome.Length > nome)
-				{
-					nome = d.Nome.Length;
-				}
+				tipo = d is DoadorMensal ? 15 : tipo;
 
-				if(d.CPF.Length > cpf)
-				{
-					cpf = d.CPF.Length;
-				}
-				
-				if(d.Endereco.Length > endereco)
-				{
-					endereco = d.Endereco.Length;
-				}
-				
-				if(d.Telefone.Length > telefone)
-				{
-					telefone = d.Telefone.Length;
-				}
+				nome = d.Nome.Length > nome ? d.Nome.Length : nome;
+				cpf = d.CPF.Length > cpf ? d.CPF.Length : cpf;
+				endereco = d.Endereco.Length > endereco ? d.Endereco.Length : endereco;
+				telefone = d.Telefone.Length > telefone ? d.Telefone.Length : telefone;
 			}
 			#endregion
 			
@@ -81,13 +74,11 @@ namespace Atividade_2
 			endereco = endereco < 8 ? 8 : endereco;
 			telefone = telefone < 8 ? 8 : telefone;
 
-			total = nome + cpf + endereco + telefone + 4;
+			total = nome + cpf + endereco + telefone + tipo + 4;
 
-			Console.WriteLine($"\n{nome} | {cpf} | {endereco} | {telefone} | {total}\n");
+			for(int i = 0; i <= total; i++) { if(i == 0) { Console.Write(" "); } else { Console.Write("_"); } }
 
-			for(int i = 0; i <= total; i++) { Console.Write("_"); }
-
-			Console.WriteLine($"\n|{"Doador/a".PadRight(nome)}|{"CPF".PadRight(cpf)}|{"Endereço".PadRight(endereco)}|{"Telefone".PadRight(telefone)}|");
+			Console.WriteLine($"\n|{"Tipo".PadRight(tipo)}|{"Doador/a".PadRight(nome)}|{"CPF".PadRight(cpf)}|{"Endereço".PadRight(endereco)}|{"Telefone".PadRight(telefone)}|");
 
 			foreach(Doador d in doadores)
 			{
@@ -96,7 +87,7 @@ namespace Atividade_2
 				int tamanhoEndereco = endereco < 8 ? 8 : d.Endereco.Length < endereco ? endereco : 0;
 				int tamanhoTelefone = telefone < 8 ? 8 : d.Telefone.Length < telefone ? telefone : 0;
 
-				Console.WriteLine($"|{d.Nome.PadRight(tamanhoNome)}|{d.CPF.PadRight(tamanhoCPF)}|{d.Endereco.PadRight(tamanhoEndereco)}|{d.Telefone.PadRight(tamanhoTelefone)}|");
+				Console.WriteLine($"|{(d is DoadorMensal ? "Doador/a Mensal" : "Doador/a").PadRight(tipo)}|{d.Nome.PadRight(tamanhoNome)}|{d.CPF.PadRight(tamanhoCPF)}|{d.Endereco.PadRight(tamanhoEndereco)}|{d.Telefone.PadRight(tamanhoTelefone)}|");
 			}
 		}
 		
@@ -105,14 +96,44 @@ namespace Atividade_2
 		{
 			List<Beneficiario> beneficiarios = c1.MostrarListaDeBeneficiarios();
 
+			if(beneficiarios.Count == 0)
+			{
+				Console.WriteLine("\nLista de beneficiários/as está vazia!");
+				return;
+			}
+
+			int nome = 0, cpf = 0, endereco = 0, telefone = 0, total;
+
+			#region Maiores Valores
+			//Seleciona os maiores valores da lista.
 			foreach(Beneficiario b in beneficiarios)
 			{
-				Console.WriteLine($"\n" +
-					$"Tipo: Beneficiário/a" +
-					$"Nome: {b.Nome}\n" +
-					$"CPF: {b.CPF}\n" +
-					$"Endereço: {b.Endereco}\n" +
-					$"Telefone: {b.Telefone}");
+				nome = b.Nome.Length > nome ? b.Nome.Length : nome;
+				cpf = b.CPF.Length > cpf ? b.CPF.Length : cpf;
+				endereco = b.Endereco.Length > endereco ? b.Endereco.Length : endereco;
+				telefone = b.Telefone.Length > telefone ? b.Telefone.Length : telefone;
+			}
+			#endregion
+
+			nome = nome < 14 ? 14 : nome;
+			cpf = cpf < 3 ? 3 : cpf;
+			endereco = endereco < 8 ? 8 : endereco;
+			telefone = telefone < 8 ? 8 : telefone;
+
+			total = nome + cpf + endereco + telefone + 3;
+
+			for(int i = 0; i <= total; i++) { if(i == 0) { Console.Write(" "); } else { Console.Write("_"); } }
+
+			Console.WriteLine($"\n|{"Beneficiário/a".PadRight(nome)}|{"CPF".PadRight(cpf)}|{"Endereço".PadRight(endereco)}|{"Telefone".PadRight(telefone)}|");
+
+			foreach(Beneficiario b in beneficiarios)
+			{
+				int tamanhoNome = nome < 14 ? 14 : b.Nome.Length < nome ? nome : 0;
+				int tamanhoCPF = cpf < 3 ? 3 : b.CPF.Length < cpf ? cpf : 0;
+				int tamanhoEndereco = endereco < 8 ? 8 : b.Endereco.Length < endereco ? endereco : 0;
+				int tamanhoTelefone = telefone < 8 ? 8 : b.Telefone.Length < telefone ? telefone : 0;
+
+				Console.WriteLine($"|{b.Nome.PadRight(tamanhoNome)}|{b.CPF.PadRight(tamanhoCPF)}|{b.Endereco.PadRight(tamanhoEndereco)}|{b.Telefone.PadRight(tamanhoTelefone)}|");
 			}
 		}
 
@@ -121,15 +142,48 @@ namespace Atividade_2
 		{
 			List<Doacao> doacoes = c1.MostrarListaDeDoacoes();
 
+			if(doacoes.Count == 0)
+			{
+				Console.WriteLine("\nA lista de doações está vazia!");
+				return;
+			}
+
+			int id = 0, data = 0, nomeDoador = 0, cpfDoador = 0, nomeBene = 0, cpfBene = 0, total;
+
+			#region Maiores Valores
+			//Seleciona os maiores valores da lista.
 			foreach(Doacao d in doacoes)
 			{
-				Console.WriteLine($"\n" +
-					$"Id: {d.Id}\n" +
-					$"Data: {d.DataDoacao}\n" +
-					$"Nome Doador: {d.Doador.Nome}\n" +
-					$"CPF Doador: {d.Doador.CPF}\n" +
-					$"Nome Beneficiário: {d.Beneficiario.Nome}\n" +
-					$"CPf Beneficiário: {d.Beneficiario.CPF}");
+				id = d.Id.ToString().Length > id ? d.Id.ToString().Length : id;
+				data = d.DataDoacao.ToString().Length > data ? d.DataDoacao.ToString().Length : data;
+
+				nomeDoador = d.Doador.Nome.Length > nomeDoador ? d.Doador.Nome.Length : nomeDoador;
+				cpfDoador = d.Doador.CPF.Length > cpfDoador ? d.Doador.CPF.Length : cpfDoador;
+
+				nomeBene = d.Beneficiario.Nome.Length > nomeBene ? d.Beneficiario.Nome.Length : nomeBene;
+				cpfBene = d.Beneficiario.CPF.Length > cpfBene ? d.Beneficiario.CPF.Length : cpfBene;
+			}
+			#endregion
+
+			total = id + data + nomeDoador + cpfDoador + nomeBene + cpfBene + 11;
+
+			for(int i = 0; i <= total; i++) { if(i == 0) { Console.Write(" "); } else { Console.Write("_"); } }
+
+			Console.WriteLine($"\n|{"Id".PadRight(id)}|{"Data".PadRight(data)}|{"Nome Doador/a".PadRight(nomeDoador)}|{"CPF Doador/a".PadRight(cpfDoador)}" +
+				$"|{"Nome Beneficiário/a".PadRight(nomeBene)}|{"CPF Beneficiário/a".PadRight(cpfBene)}|");
+
+			foreach(Doacao d in doacoes)
+			{
+				int tamanhoId = id < 2 ? 2 : d.Id.ToString().Length < id ? id : 0;
+				int tamanhoData = data < 4 ? 4 : d.DataDoacao.ToString().Length < data ? data : 0;
+				int tamanhoNomeDoador = nomeDoador < 13 ? 13 : d.Doador.Nome.Length < nomeDoador ? nomeDoador : 0;
+				int tamanhoCPFDoador = cpfDoador < 12 ? 12 : d.Doador.CPF.Length < cpfDoador ? cpfDoador : 0;
+				int tamanhoNomeBene = nomeBene < 19 ? 19 : d.Beneficiario.Nome.Length < nomeBene ? nomeBene : 0;
+				int tamanhoCPFBene = cpfBene < 18 ? 18 : d.Beneficiario.CPF.Length < cpfBene ? cpfBene : 0;
+
+				Console.WriteLine($"|{d.Id.ToString().PadRight(tamanhoId)}|{d.DataDoacao}" +
+					$"|{d.Doador.Nome.PadRight(tamanhoNomeDoador)}|{d.Doador.CPF.PadRight(tamanhoCPFDoador)}" +
+					$"|{d.Beneficiario.Nome.PadRight(tamanhoNomeBene)}|{d.Beneficiario.CPF.PadRight(tamanhoCPFBene)}|");
 			}
 		}
 

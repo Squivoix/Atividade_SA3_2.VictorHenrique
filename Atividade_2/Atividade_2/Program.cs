@@ -35,9 +35,9 @@ namespace Atividade_2
 
 						Menu.CadastrarPessoaDoadora(nome, cpf, endereco, telefone);*/
 						Menu.CadastrarPessoaDoadora("Victor", "047.902.671", "Rua Machado de Assis", "(43) 9");
-						Menu.CadastrarPessoaDoadora("Ana", "047.905", "Rua Diacuí", "(43) 9 9822");
 						Menu.CadastrarPessoaDoadoraMensal("Lais Vieira", "000", "Rua 10 de Dezembro", "+55 (43) 9 9615-7624");
 						Menu.CadastrarPessoaDoadoraMensal("Patrich Dal Magro", "9", "Rua Lamborghini", "9 9615-7628");
+						Menu.CadastrarPessoaDoadora("Ana", "047.905", "Rua Diacuí", "(43) 9 9822");
 						break;
 					}
 
@@ -64,6 +64,12 @@ namespace Atividade_2
 						Console.Write("Digite o Telefone da Pessoa: "); telefone = Console.ReadLine();
 
 						Menu.CadastrarPessoaBeneficiaria(nome, cpf, endereco, telefone);*/
+
+						/*Menu.CadastrarPessoaBeneficiaria("Victor", "047.902.671", "Rua Machado de Assis", "(43) 9");
+						Menu.CadastrarPessoaBeneficiaria("Ana", "047.905", "Rua Diacuí", "(43) 9 9822");
+						Menu.CadastrarPessoaBeneficiaria("Lais Vieira", "000", "Rua 10 de Dezembro", "+55 (43) 9 9615-7624");
+						Menu.CadastrarPessoaBeneficiaria("Patrich Dal Magro", "9", "Rua Lamborghini", "9 9615-7628");*/
+
 						Menu.CadastrarPessoaBeneficiaria("Victor Henrique Dal Magro", "147.902.671-80", "Rua Diacuí, 222", "(43) 9 8476-0031");
 						Menu.CadastrarPessoaBeneficiaria("Ana Beatriz Dal Magro", "147.905.999-80", "Rua Diacuí, 222", "(43) 9 9822-4910");
 						Menu.CadastrarPessoaBeneficiaria("Lais Vieira dos Santos", "100.111.222-33", "Rua Diacuí, 222", "(43) 9 9615-7624");
