@@ -34,8 +34,10 @@ namespace Atividade_2
 						Console.Write("Digite o Telefone da Pessoa: "); telefone = Console.ReadLine();
 
 						Menu.CadastrarPessoaDoadora(nome, cpf, endereco, telefone);*/
-						Menu.CadastrarPessoaDoadora("Victor", "047.902.671-80", "Rua Machado de Assis", "(43) 9 8476-0031");
-						Menu.CadastrarPessoaDoadora("Ana", "047.905.999-80", "Rua Diacuí", "(43) 9 9822-4910");
+						Menu.CadastrarPessoaDoadora("Victor", "047.902.671", "Rua Machado de Assis", "(43) 9");
+						Menu.CadastrarPessoaDoadora("Ana", "047.905", "Rua Diacuí", "(43) 9 9822");
+						Menu.CadastrarPessoaDoadoraMensal("Lais Vieira", "000", "Rua 10 de Dezembro", "+55 (43) 9 9615-7624");
+						Menu.CadastrarPessoaDoadoraMensal("Patrich Dal Magro", "9", "Rua Lamborghini", "9 9615-7628");
 						break;
 					}
 
@@ -49,8 +51,6 @@ namespace Atividade_2
 						Console.Write("Digite o Telefone da Pessoa: "); telefone = Console.ReadLine();
 
 						Menu.CadastrarPessoaDoadoraMensal(nome, cpf, endereco, telefone);*/
-						Menu.CadastrarPessoaDoadoraMensal("Lais", "000.111.222-33", "Rua 10 de Dezembro", "(43) 9 9615-7624");
-						Menu.CadastrarPessoaDoadoraMensal("Patrich", "999.888.777-66", "Rua Lamborghini", "(43) 9 9615-7628");
 						break;
 					}
 
